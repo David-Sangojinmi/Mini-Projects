@@ -5,13 +5,25 @@
 # is greater or smaller than the one you have guessed.                 #
 
 import random
-import math
+import pprint
+import sys
 
-print("""
-The aim of this game is to guess the number the computer has picked.
-You will have three chances to get the number correct.
-Good luck!
-""")
+print("The aim of this game is to guess the number the computer has picked.",
+"\n", "You will have three chances to get the number correct.",
+"\n", "Good luck!")
 
-int num = random()
-int maxNum = input()
+maxNum = 10
+correctNum = random.randint(1, maxNum)
+
+def playerGuess():
+    guessNum = input("Enter your guess: ")
+    if guessNum == correctNum:
+        print("You have guess correctly. The answer was " + correctNum)
+    elif guessNum > correctNum:
+        print("Ahaha too high!")
+    elif guessNum < correctNum:
+        print("Ahaha too small!")
+
+playerGuess()
+playerGuess()
+playerGuess()
