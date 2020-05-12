@@ -13,14 +13,16 @@ print("The aim of this game is to guess the number the computer has picked.",
 "\n", "Good luck!")
 
 numberFound = False
-maxNum = 10
+maxNum = 20
 correctNum = random.randint(1, maxNum)
 
 def playerGuess():
+    global numberFound
+
     while numberFound == False:
         guessNum = int(input("Enter your guess: "))
         if guessNum == correctNum:
-            print("You have guess correctly. The answer was ", correctNum)
+            print("You have guessed correctly. The answer was ", correctNum)
             numberFound = True
         elif guessNum > correctNum:
             print("Ahaha too high!")
