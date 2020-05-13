@@ -9,15 +9,17 @@ import pprint
 import sys
 
 print("The aim of this game is to guess the number the computer has picked.",
-"\n", "You will have three chances to get the number correct.",
+"\n", "You will have five chances to get the number correct.",
 "\n", "Good luck!")
 
 numberFound = False
 maxNum = 20
 correctNum = random.randint(1, maxNum)
+numGuesses = 5
 
 def playerGuess():
     global numberFound
+    global numGuesses
 
     while numberFound == False:
         guessNum = int(input("Enter your guess: "))
@@ -26,7 +28,14 @@ def playerGuess():
             numberFound = True
         elif guessNum > correctNum:
             print("Ahaha too high!")
+            numGuesses -= 1
         elif guessNum < correctNum:
             print("Ahaha too small!")
+            numGuesses -= 1
+        if numGuesses == 0:
+            print("Too bad, you didn't get the correct answer.",
+            "\n", "The correct answer was ", correctNum)
+            break
+        
 
 playerGuess()
